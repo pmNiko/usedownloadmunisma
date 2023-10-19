@@ -183,7 +183,7 @@ De esta manera podemos utilizar en la UI alguna estrategia para mostrarle al usu
 
 ---
 
-#### Desarroladores
+#### Desarrolladores
 
 - [Esteban Menendez](https://github.com/ejmenendez)
 - [Martín Nicolás Paneblanco](https://github.com/pmNiko)
