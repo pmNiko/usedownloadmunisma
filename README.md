@@ -75,18 +75,18 @@ Descarga de archivos en multiples formatos
 
 ###### _Seleccionables_
 
-Existen dos escenarios en los que vamos a estar descargando archivos.
+Existen tres escenarios en los que vamos a estar descargando archivos.
 La primera será cuando accedamos a la grilla de resultados y en esta podamos
 seleccionar aquellos que nos interesan.
 En este caso utilizaremos lo siguiente. <br/><br/>
 
 | Objetivo             | Menjador de estado | Método            |
 | -------------------- | ------------------ | ----------------- |
-| Recibos              | select             | receiptPdf        |
-| Recibos              | select             | receiptZip        |
+| Recibos              | select             | receiptPDF        |
+| Recibos              | select             | receiptZIP        |
 | -                    | -                  | -                 |
-| Comprobantes de pago | select             | paymentReceiptPdf |
-| Comprobantes de pago | select             | paymentReceiptZip |
+| Comprobantes de pago | select             | paymentReceiptPDF |
+| Comprobantes de pago | select             | paymentReceiptZIP |
 |                      |                    |                   |
 
 _\*Nota: **select** recibe un array de números de recibos o uno en particular_
@@ -104,6 +104,19 @@ En este caso utilizaremos lo siguiente. <br/><br/>
 | -                 | -                  | -             |
 | Recibos de sueldo | setId              | salaryReceipt |
 |                   |                    |               |
+
+<br/>
+
+###### _Archivos de licitación_
+
+La tercera será para descargar los archivos en formato multiple de las licitaciones.
+No requiere manejador de estado.
+<br/><br/>
+
+| Objetivo              | Método     | Parametros            |
+| --------------------- | ---------- | --------------------- |
+| Archivo de licitación | tenderFile | id: number            |
+|                       |            | nombreArchivo: string |
 
 <br/>
 

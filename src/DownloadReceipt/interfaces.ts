@@ -11,9 +11,14 @@ export type ReceiptOptions = {
   usuario?: string | null;
 };
 
+type TendersParams = {
+  idLicitacion: number | null;
+  nombreArchivo: string | null;
+};
+
 export interface DownloadParams {
   fileName?: string;
-  param: LinkParamOptions | ReceiptOptions;
+  param: LinkParamOptions | ReceiptOptions | TendersParams;
   url: string;
   type?: ContentType;
 }

@@ -11,19 +11,19 @@ import {
   DownloadFileDTO,
   ReceiptOptions,
 } from './interfaces';
-import { Endpoint } from './endpoint';
+import { Endpoints } from './endpoints';
 
 /**
  * - useDownload
  *
- *   - receiptPdf (recibos desde el listado .PDF)
- *   - receiptZip (recibos desde el listado .ZIP)
+ *   - receiptPDF (recibos desde el listado .PDF)
+ *   - receiptZIP (recibos desde el listado .ZIP)
  *
  *    **select** cargar número de recibos en formato (csv)
  *--------------
  *
- *  - paymentReceiptPdf (comprobantes de pago desde el listado .PDF)
- *  - paymentReceiptZip (comprobantes de pago desde el listado .ZIP)
+ *  - paymentReceiptPDF (comprobantes de pago desde el listado .PDF)
+ *  - paymentReceiptZIP (comprobantes de pago desde el listado .ZIP)
  *
  *    **select** cargar número de recibos en formato (csv)
  *--------------
@@ -34,6 +34,9 @@ import { Endpoint } from './endpoint';
  *--------------
  *  - salaryReceipt (link desde el email)
  *     - **setId** cargar hash formato .PDF
+ *--------------
+ *  - tenderFile (ID - nombreArchivo)
+ *     - no necesita manejador de estado
  *--------------
  * @customHook para descarga de recibos del contribuyente
  */
@@ -99,61 +102,68 @@ export const useDownload = () => {
   };
 
   // ---- Recibos Seleccionados --------------- //
-  const receiptPdf = () => {
+  const receiptPDF = () => {
     handleDownloadDTO({
       param: receiptsDownload,
-      url: Endpoint.RECIBOS_PDF_SELECCIONADOS,
+      url: Endpoints.RECIBOS_PDF,
     });
   };
 
-  const receiptZip = () => {
+  const receiptZIP = () => {
     handleDownloadDTO({
       param: receiptsDownload,
-      url: Endpoint.RECIBOS_ZIP_SELECCIONADOS,
-    });
-  };
-  // ----------------- END ----------------------//
-
-  // ---- Comprobantes Seleccionados --------------- //
-  const paymentReceiptPdf = () => {
-    handleDownloadDTO({
-      param: receiptsDownload,
-      url: Endpoint.COMPROBANTE_PDF_SELECCIONADOS,
-    });
-  };
-
-  const paymentReceiptZip = () => {
-    handleDownloadDTO({
-      param: receiptsDownload,
-      url: Endpoint.COMPROBANTE_ZIP_SELECCIONADOS,
+      url: Endpoints.COMPROBANTE_ZIP,
     });
   };
   // ----------------- END ----------------------//
 
   // ---- Recibos por link --------------- //
-  const receiptPdfFromEmail = () => {
+  const receiptPDFbyLink = () => {
     handleDownloadDTO({
       param: { token, id },
-      url: Endpoint.RECIBOS_PDF_DESDE_EMAIL,
+      url: Endpoints.RECIBOS_PDF_BY_LINK,
     });
   };
 
-  const receiptZipFromEmail = () => {
+  const receiptZIPbyLink = () => {
     handleDownloadDTO({
       param: { zip },
-      url: Endpoint.RECIBOS_ZIP_DESDE_EMAIL,
+      url: Endpoints.RECIBOS_ZIP_BY_LINK,
     });
   };
 
   const receiptByLink = () => {
-    !!zip ? receiptZipFromEmail() : receiptPdfFromEmail();
+    !!zip ? receiptZIPbyLink() : receiptPDFbyLink();
+  };
+  // ----------------- END ----------------------//
+
+  // ---- Comprobantes Seleccionados --------------- //
+  const paymentReceiptPDF = () => {
+    handleDownloadDTO({
+      param: receiptsDownload,
+      url: Endpoints.COMPROBANTE_PDF,
+    });
+  };
+
+  const paymentReceiptZIP = () => {
+    handleDownloadDTO({
+      param: receiptsDownload,
+      url: Endpoints.COMPROBANTE_ZIP,
+    });
   };
   // ----------------- END ----------------------//
 
   const salaryReceipt = () => {
     handleDownloadDTO({
       param: { id },
-      url: Endpoint.RECIBO_DE_SUELDO,
+      url: Endpoints.RECIBO_DE_SUELDO,
+    });
+  };
+
+  const tenderFile = (idLicitacion: number, nombreArchivo: string) => {
+    handleDownloadDTO({
+      param: { idLicitacion, nombreArchivo },
+      url: Endpoints.ARCHIVO_LICITACION,
     });
   };
 
@@ -168,13 +178,15 @@ export const useDownload = () => {
     select: (payload: ReceiptOptions) =>
       dispatch({ type: 'setReceipts', payload }),
 
-    receiptPdf,
-    receiptZip,
+    receiptPDF,
+    receiptZIP,
     receiptByLink,
 
-    paymentReceiptPdf,
-    paymentReceiptZip,
+    paymentReceiptPDF,
+    paymentReceiptZIP,
 
     salaryReceipt,
+
+    tenderFile,
   };
 };
