@@ -112,7 +112,7 @@ export const useDownload = () => {
   const receiptZIP = () => {
     handleDownloadDTO({
       param: receiptsDownload,
-      url: Endpoints.COMPROBANTE_ZIP,
+      url: Endpoints.RECIBOS_ZIP,
     });
   };
   // ----------------- END ----------------------//
