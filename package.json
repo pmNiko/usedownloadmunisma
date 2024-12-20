@@ -36,14 +36,14 @@
   },
   "name": "usedownloadmunisma",
   "author": "nikoDev",
-  "module": "dist/usedownload-dto.esm.js",
+  "module": "dist/usedownloadmunisma.esm.js",
   "size-limit": [
     {
-      "path": "dist/usedownload-dto.cjs.production.min.js",
+      "path": "dist/usedownloadmunisma.cjs.production.min.js",
       "limit": "10 KB"
     },
     {
-      "path": "dist/usedownload-dto.esm.js",
+      "path": "dist/usedownloadmunisma.esm.js",
       "limit": "10 KB"
     }
   ],
@@ -57,7 +57,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "size-limit": "^8.2.4",
-    "toast-munisma": "^2.5.0",
+    "toast-munisma": "0.1.0",
     "tsdx": "^0.14.1",
     "tslib": "^2.6.2",
     "typescript": "^3.9.10"

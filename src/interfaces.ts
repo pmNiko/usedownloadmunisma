@@ -43,15 +43,15 @@ export type DownloadActionType =
   | { type: 'setProgress'; payload: number }
   | { type: 'reset' };
 
+export interface DownloadFile {
+  nombreArchivo: string;
+  contenido: string;
+  contentType: string;
+}
+
 export interface DownloadFileDTO {
   estado: number;
   rowcount: number;
   datos: DownloadFile[];
   mensaje: string;
-}
-
-export interface DownloadFile {
-  nombreArchivo: string;
-  contenido: string;
-  contentType: string;
 }
