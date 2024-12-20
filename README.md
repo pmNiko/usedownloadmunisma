@@ -1,4 +1,4 @@
-<h1 align="center">usedownload-dto</h1>
+<h1 align="center">usedownloadmunisma</h1>
 
 <p align="center" width="300">
    <img align="center" width="200" src="https://i.ibb.co/V3tMCZn/municipio.png" />
@@ -29,9 +29,9 @@ Descarga de archivos en multiples formatos
 
 > Instalación
 >
-> > npm install usedownload-dto
+> > npm install usedownloadmunisma
 > >
-> > yarn add usedownload-dto
+> > yarn add usedownloadmunisma
 >
 > >
 
