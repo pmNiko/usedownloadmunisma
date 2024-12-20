@@ -1,5 +1,5 @@
 {
-  "version": "1.6.0",
+  "version": "0.1.0",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -7,6 +7,10 @@
     "dist",
     "src"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pmNiko/usedownloadmunisma.git"
+  },
   "engines": {
     "node": ">=10"
   },
@@ -30,7 +34,7 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "usedownload-dto",
+  "name": "usedownloadmunisma",
   "author": "nikoDev",
   "module": "dist/usedownload-dto.esm.js",
   "size-limit": [
